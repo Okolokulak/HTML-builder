@@ -15,9 +15,9 @@ function copyDir(dir) {
   });
 }
 
-fs.stat(dirCopy, () => {
+
   fs.rm(dirCopy, { recursive: true }, () => {
     copyDir(path.join(__dirname, "files"));
   });
-});
+
 
