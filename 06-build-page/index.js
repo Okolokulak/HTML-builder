@@ -8,8 +8,8 @@ function copyAssets(from, to) {
   fs.mkdir(to, { recursive: true }, () => {
     fs.readdir(from, { withFileTypes: true }, (err, files) => {
       files.forEach((elem) => {
-        let origin = from + "\\" + elem.name;
-        let destination = to + "\\" + elem.name;
+        let origin = path.join(from, elem.name);
+        let destination = path.join(to, elem.name);
         if (elem.isDirectory()) {
           copyAssets(origin, destination);
         } else {
